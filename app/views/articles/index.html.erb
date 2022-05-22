@@ -1,0 +1,18 @@
+<h2>Fort Blog</h2>
+
+<ul>
+  <% @articles.each do |article| %>
+    <li>
+      <%= article.title %>
+      <%= link_to "View",   article_path(article)%>
+      <%= link_to "  Edit", edit_article_path(article)%>
+      <%= link_to "Delete", article_path(article), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %>
+    </li><br/>
+  <% end %> <br/><br/>
+
+  <%= link_to "Create New Article", new_article_path %>
+</ul>
+
